@@ -12,7 +12,7 @@ const Home = () => {
                 <Link to={'/monitorInfo'}>
                     <button className="btn btn-secondary rounded-md">Monitor</button>
                 </Link>
-                <Link>
+                <Link to={'/upsInfo'}>
                     <button className="btn btn-accent rounded-md">UPS</button>
                 </Link>
             </div>

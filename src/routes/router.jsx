@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../components/Home/Home";
 import PC from "../components/PC/PC";
 import Monitor from "../components/Monitor/Monitor";
+import UPS from "../components/UPS/UPS";
 
 export const router = createBrowserRouter([
     {
@@ -15,5 +16,9 @@ export const router = createBrowserRouter([
     {
         path: '/monitorInfo',
         element: <Monitor></Monitor>
+    },
+    {
+        path: '/upsInfo',
+        element: <UPS></UPS>
     },
 ])
