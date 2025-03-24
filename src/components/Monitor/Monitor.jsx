@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const PC = () => {
+const Monitor = () => {
     return (
         <div>
             {/* Befor Table Part */}
             <div className='flex gap-5 justify-between mb-3'>
-                <h1 className='text-2xl font-bold'>PC List</h1>
+                <h1 className='text-2xl font-bold'>Monitor List</h1>
                 <div className='flex gap-3'>
                     <Link to={'/addNewPCInfo'}>
                         <button className="btn btn-primary btn-sm rounded-md">Add New</button>
@@ -22,7 +22,6 @@ const PC = () => {
                     <thead>
                         <tr>
                             <th>SL.</th>
-                            <th>Item</th>
                             <th>Brand/Model</th>
                             <th>User Name</th>
                             <th>Dept.</th>
@@ -34,10 +33,9 @@ const PC = () => {
                         {/* row */}
                         <tr className="hover">
                             <th>1</th>
-                            <th>Laptop</th>
-                            <td>HP Probook 440 G10</td>
-                            <td>Sayem</td>
-                            <td>Admin</td>
+                            <td>LG</td>
+                            <td>Hossain</td>
+                            <td>MCD</td>
                             <td>13-03-2025</td>
                             <td>13-03-2025</td>
                         </tr>
@@ -48,4 +46,4 @@ const PC = () => {
     );
 };
 
-export default PC;
+export default Monitor;
