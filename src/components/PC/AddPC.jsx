@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom';
 
 const AddPC = () => {
     const [startDate, setStartDate] = useState(new Date());
+    const [serviceDate, setServiceDate] = useState(new Date());
 
     return (
         <div>
             <form>
                 {/* PC Info Part */}
                 <div>
-                    <h2 className='text-3xl font-bold text-teal-500 uppercase'>PC Info</h2>
+                    <h2 className='text-2xl font-bold text-teal-500 uppercase'>PC Info</h2>
                     <hr />
                     <div className='flex gap-5 mt-3'>
                         <select className="select mb-3">
@@ -48,8 +49,8 @@ const AddPC = () => {
                 </div>
 
                 {/* User Info Part */}
-                <div className='mt-10'>
-                    <h2 className='text-3xl font-bold text-teal-500 uppercase'>User Info</h2>
+                <div className='mt-6'>
+                    <h2 className='text-2xl font-bold text-teal-500 uppercase'>User Info</h2>
                     <hr />
                     <div className='flex gap-5 mt-3'>
                         <label className="input input-bordered flex items-center gap-2 mb-3">
@@ -78,9 +79,23 @@ const AddPC = () => {
                         </label>
                     </div>
                 </div>
+
+                {/* Service Info Part */}
+                <div className='mt-6'>
+                    <h2 className='text-2xl font-bold text-teal-500 uppercase'>Service Info</h2>
+                    <hr />
+                    <div className='flex gap-5 mt-3'>
+                        <label className="input input-bordered flex items-center z-10 gap-2 mb-3">
+                            Last Service Date
+                            <DatePicker selected={serviceDate}
+                                onChange={(date) => setServiceDate(date)}
+                            />
+                        </label>
+                    </div>
+                </div>
                 <button className="btn btn-active btn-primary w-full rounded-xl mt-2">Submit</button>
             </form>
-            <Link to='/'>
+            <Link to='/pcInfo'>
                 <button className="btn bg-rose-600 text-slate-200 font-bold w-full rounded-xl mt-1">Back</button>
             </Link>
         </div>
