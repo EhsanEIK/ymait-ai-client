@@ -3,6 +3,7 @@ import Home from "../components/Home/Home";
 import PC from "../components/PC/PC";
 import Monitor from "../components/Monitor/Monitor";
 import UPS from "../components/UPS/UPS";
+import AddPC from "../components/PC/AddPC";
 
 export const router = createBrowserRouter([
     {
@@ -12,6 +13,10 @@ export const router = createBrowserRouter([
     {
         path: '/pcInfo',
         element: <PC></PC>
+    },
+    {
+        path: '/addPC',
+        element: <AddPC></AddPC>
     },
     {
         path: '/monitorInfo',
