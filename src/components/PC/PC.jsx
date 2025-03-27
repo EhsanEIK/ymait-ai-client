@@ -3,7 +3,6 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const PC = () => {
     const pcAllData = useLoaderData();
-    console.log(pcAllData)
 
     return (
         <div>
@@ -41,19 +40,19 @@ const PC = () => {
                     <tbody>
                         {/* row */}
                         {
-                            pcAllData.map(pcData => <tr className="hover">
+                            pcAllData.map(pcData => <tr key={pcData?._id} className="hover">
                                 <th>1</th>
-                                <th>{pcData.itemType}</th>
-                                <td>{pcData.brandName} {pcData.model}</td>
-                                <td>{pcData.supplierName}</td>
-                                <td>{pcData.userName}</td>
-                                <td>{pcData.email}</td>
-                                <td>{pcData.officeID}</td>
-                                <td>{pcData.department}</td>
-                                <td>{pcData.extNumber}</td>
-                                <td>{pcData.assetCode}</td>
-                                <td>{pcData.purchaseDate}</td>
-                                <td>{pcData.lastServiceDate}</td>
+                                <th>{pcData?.itemType}</th>
+                                <td>{pcData?.brandName} {pcData?.model}</td>
+                                <td>{pcData?.supplierName}</td>
+                                <td>{pcData?.userName}</td>
+                                <td>{pcData?.email}</td>
+                                <td>{pcData?.officeID}</td>
+                                <td>{pcData?.department}</td>
+                                <td>{pcData?.extNumber}</td>
+                                <td>{pcData?.assetCode}</td>
+                                <td>{pcData?.purchaseDate}</td>
+                                <td>{pcData?.lastServiceDate}</td>
                             </tr>)
                         }
                     </tbody>

@@ -38,7 +38,12 @@ const AddPC = () => {
         })
             .then(res => res.json())
             .then(data => {
-                toast.success('Added PC Data Successfully.');
+                if (data.acknowledged) {
+                    toast.success('Added PC Data Successfully.');
+                    form.reset();
+                    setPurchaseDate(new Date());
+                    setLastServiceDate(new Date());
+                }
             })
     }
 
