@@ -18,13 +18,14 @@ const AddPC = () => {
         const assetCode = form.assetCode.value;
         const userName = form.userName.value;
         const email = form.email.value;
+        const officeID = form.officeID.value;
         const department = form.department.value;
         const extNumber = form.extNumber.value;
         const lastServiceDate = form.lastServiceDate.value;
 
         const pcData = {
             itemType, purchaseDate, brandName, model, supplierName, assetCode,
-            userName, email, department, extNumber,
+            userName, email, officeID, department, extNumber,
             lastServiceDate
         }
 

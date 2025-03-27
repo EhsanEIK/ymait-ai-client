@@ -1,7 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const PC = () => {
+    const pcAllData = useLoaderData();
+    console.log(pcAllData)
+
     return (
         <div>
             {/* Befor Table Part */}
@@ -37,20 +40,22 @@ const PC = () => {
                     </thead>
                     <tbody>
                         {/* row */}
-                        <tr className="hover">
-                            <th>1</th>
-                            <th>Laptop</th>
-                            <td>HP Probook 440 G10</td>
-                            <td>SMART Tech.</td>
-                            <td>Sayem</td>
-                            <td>sayem@youngonectg.com</td>
-                            <td>2040404040</td>
-                            <td>Admin</td>
-                            <td>3223</td>
-                            <td>1600004804</td>
-                            <td>13-03-2025</td>
-                            <td>13-03-2025</td>
-                        </tr>
+                        {
+                            pcAllData.map(pcData => <tr className="hover">
+                                <th>1</th>
+                                <th>{pcData.itemType}</th>
+                                <td>{pcData.brandName} {pcData.model}</td>
+                                <td>{pcData.supplierName}</td>
+                                <td>{pcData.userName}</td>
+                                <td>{pcData.email}</td>
+                                <td>{pcData.officeID}</td>
+                                <td>{pcData.department}</td>
+                                <td>{pcData.extNumber}</td>
+                                <td>{pcData.assetCode}</td>
+                                <td>{pcData.purchaseDate}</td>
+                                <td>{pcData.lastServiceDate}</td>
+                            </tr>)
+                        }
                     </tbody>
                 </table>
             </div>

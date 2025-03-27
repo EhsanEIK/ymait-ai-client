@@ -12,7 +12,8 @@ export const router = createBrowserRouter([
     },
     {
         path: '/pcInfo',
-        element: <PC></PC>
+        element: <PC></PC>,
+        loader: () => fetch('http://localhost:5000/pcData')
     },
     {
         path: '/addPC',
