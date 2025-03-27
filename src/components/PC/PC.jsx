@@ -24,8 +24,13 @@ const PC = () => {
                             <th>SL.</th>
                             <th>Item</th>
                             <th>Brand/Model</th>
+                            <th>Supplier Name</th>
                             <th>User Name</th>
+                            <th>Email Address</th>
+                            <th>Office ID</th>
                             <th>Dept.</th>
+                            <th>Ext. No.</th>
+                            <th>Asset Code</th>
                             <th>Purchase Date</th>
                             <th>Last Servicing Date</th>
                         </tr>
@@ -36,8 +41,13 @@ const PC = () => {
                             <th>1</th>
                             <th>Laptop</th>
                             <td>HP Probook 440 G10</td>
+                            <td>SMART Tech.</td>
                             <td>Sayem</td>
+                            <td>sayem@youngonectg.com</td>
+                            <td>2040404040</td>
                             <td>Admin</td>
+                            <td>3223</td>
+                            <td>1600004804</td>
                             <td>13-03-2025</td>
                             <td>13-03-2025</td>
                         </tr>
