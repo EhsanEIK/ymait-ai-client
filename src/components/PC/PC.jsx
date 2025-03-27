@@ -1,8 +1,24 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const PC = () => {
     const pcAllData = useLoaderData();
+
+    let i = 1;
+
+    // handler for delete pc data from db
+    const handleDeleteData = id => {
+        fetch(`http://localhost:5000/pcData/${id}`, {
+            method: "DELETE",
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount) {
+                    toast.success('Deleted PC Data Successfully.');
+                }
+            })
+    }
 
     return (
         <div>
@@ -35,13 +51,14 @@ const PC = () => {
                             <th>Asset Code</th>
                             <th>Purchase Date</th>
                             <th>Last Servicing Date</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {/* row */}
                         {
                             pcAllData.map(pcData => <tr key={pcData?._id} className="hover">
-                                <th>1</th>
+                                <th>{i++}</th>
                                 <th>{pcData?.itemType}</th>
                                 <td>{pcData?.brandName} {pcData?.model}</td>
                                 <td>{pcData?.supplierName}</td>
@@ -53,6 +70,9 @@ const PC = () => {
                                 <td>{pcData?.assetCode}</td>
                                 <td>{pcData?.purchaseDate}</td>
                                 <td>{pcData?.lastServiceDate}</td>
+                                <td>
+                                    <button onClick={() => { handleDeleteData(pcData?._id) }} className="btn bg-red-500 text-white btn-sm rounded-md hover:bg-red-600">Delete</button>
+                                </td>
                             </tr>)
                         }
                     </tbody>

@@ -56,14 +56,15 @@ const AddPC = () => {
                     <h2 className='text-2xl font-bold text-teal-500 uppercase'>PC Info</h2>
                     <hr />
                     <div className='flex gap-5 mt-3'>
-                        <select name='itemType' className="select mb-3">
-                            <option defaultValue={true}>-- SELECT PC TYPE --</option>
+                        <select defaultValue="-- SELECT PC TYPE --" name='itemType' className="select mb-3" required>
+                            <option disabled>-- SELECT PC TYPE --</option>
                             <option>Desktop</option>
                             <option>Laptop</option>
                         </select>
                         <label className="input input-bordered flex items-center z-10 gap-2 mb-3">
                             Purchase Date
-                            <DatePicker name='purchaseDate' selected={purchaseDate}
+                            <DatePicker name='purchaseDate' required
+                                selected={purchaseDate}
                                 onChange={(date) => setPurchaseDate(date)}
                             />
                         </label>
@@ -71,21 +72,21 @@ const AddPC = () => {
                     <div className='flex gap-5'>
                         <label className="input input-bordered flex items-center gap-2 mb-3">
                             Brand
-                            <input name='brandName' type="text" className="grow" placeholder="brand name" />
+                            <input name='brandName' type="text" className="grow" placeholder="brand name" required />
                         </label>
                         <label className="input input-bordered flex items-center gap-2 mb-3">
                             Model
-                            <input name='model' type="text" className="grow" placeholder="model" />
+                            <input name='model' type="text" className="grow" placeholder="model" require />
                         </label>
                     </div>
                     <div className='flex gap-5'>
                         <label className="input input-bordered flex items-center gap-2 mb-3">
                             Supplier Name
-                            <input name='supplierName' type="text" className="grow" placeholder="supplier name" />
+                            <input name='supplierName' type="text" className="grow" placeholder="supplier name" required />
                         </label>
                         <label className="input input-bordered flex items-center gap-2 mb-3">
                             Asset Code
-                            <input name='assetCode' type="text" className="grow" placeholder="asset code" />
+                            <input name='assetCode' type="text" className="grow" placeholder="asset code" required />
                         </label>
                     </div>
                 </div>
@@ -97,27 +98,27 @@ const AddPC = () => {
                     <div className='flex gap-5 mt-3'>
                         <label className="input input-bordered flex items-center gap-2 mb-3">
                             User Name
-                            <input name='userName' type="text" className="grow" placeholder="user name" />
+                            <input name='userName' type="text" className="grow" placeholder="user name" required />
                         </label>
                         <label className="input input-bordered flex items-center gap-2 mb-3">
                             Email
-                            <input name='email' type="text" className="grow" placeholder="email" />
+                            <input name='email' type="text" className="grow" placeholder="email" required />
                         </label>
                     </div>
                     <div className='flex gap-5'>
                         <label className="input input-bordered flex items-center gap-2 mb-3">
                             Dept.
-                            <input name='department' type="text" className="grow" placeholder="department" />
+                            <input name='department' type="text" className="grow" placeholder="department" required />
                         </label>
                         <label className="input input-bordered flex items-center gap-2 mb-3">
                             Office ID
-                            <input name='officeID' type="text" className="grow" placeholder="id no." />
+                            <input name='officeID' type="text" className="grow" placeholder="id no." required />
                         </label>
                     </div>
                     <div className='flex gap-5'>
                         <label className="input input-bordered flex items-center gap-2 mb-3">
                             Extension Number
-                            <input name='extNumber' type="text" className="grow" placeholder="ext. number" />
+                            <input name='extNumber' type="text" className="grow" placeholder="ext. number" required />
                         </label>
                     </div>
                 </div>
@@ -129,7 +130,8 @@ const AddPC = () => {
                     <div className='flex gap-5 mt-3'>
                         <label className="input input-bordered flex items-center z-10 gap-2 mb-3">
                             Last Service Date
-                            <DatePicker name='lastServiceDate' selected={lastServiceDate}
+                            <DatePicker name='lastServiceDate' required
+                                selected={lastServiceDate}
                                 onChange={(date) => setLastServiceDate(date)}
                             />
                         </label>
