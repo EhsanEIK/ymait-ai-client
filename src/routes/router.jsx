@@ -22,7 +22,8 @@ export const router = createBrowserRouter([
     },
     {
         path: '/monitorInfo',
-        element: <Monitor></Monitor>
+        element: <Monitor></Monitor>,
+        loader: () => fetch('http://localhost:5000/monitorInfo')
     },
     {
         path: '/addMonitorInfo',

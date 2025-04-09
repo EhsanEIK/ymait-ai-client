@@ -1,12 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const Monitor = () => {
+    const allMonitorData = useLoaderData();
+
+    let i = 1;
+
     return (
         <div>
             {/* Befor Table Part */}
             <div className='flex gap-5 justify-between mb-3'>
-                <h1 className='text-2xl font-bold'>Monitor List</h1>
+                <h1 className='text-2xl font-bold'>Monitor Information List</h1>
                 <div className='flex gap-3'>
                     <Link to={'/addMonitorInfo'}>
                         <button className="btn btn-primary btn-sm rounded-md">Add New</button>
@@ -37,19 +41,21 @@ const Monitor = () => {
                     </thead>
                     <tbody>
                         {/* row */}
-                        <tr className="hover">
-                            <th>1</th>
-                            <td>LG</td>
-                            <td>SMART</td>
-                            <td>Hossain</td>
-                            <td>hossain@email.com</td>
-                            <td>20000000</td>
-                            <td>MCD</td>
-                            <td>3535</td>
-                            <td>1600003535</td>
-                            <td>13-03-2025</td>
-                            <td>13-03-2025</td>
-                        </tr>
+                        {
+                            allMonitorData.map(monitorData => <tr key={monitorData?._id} className="hover">
+                                <th>{i++}</th>
+                                <td>{monitorData?.brandName} {monitorData?.model}</td>
+                                <td>{monitorData?.supplierName}</td>
+                                <td>{monitorData?.userName}</td>
+                                <td>{monitorData?.email}</td>
+                                <td>{monitorData?.officeID}</td>
+                                <td>{monitorData?.department}</td>
+                                <td>{monitorData?.extNumber}</td>
+                                <td>{monitorData?.assetCode}</td>
+                                <td>{monitorData?.purchaseDate}</td>
+                                <td>{monitorData?.lastServiceDate}</td>
+                            </tr>)
+                        }
                     </tbody>
                 </table>
             </div>

@@ -24,7 +24,7 @@ const PC = () => {
         <div>
             {/* Befor Table Part */}
             <div className='flex gap-5 justify-between mb-3'>
-                <h1 className='text-2xl font-bold'>PC List</h1>
+                <h1 className='text-2xl font-bold'>PC Information List</h1>
                 <div className='flex gap-3'>
                     <Link to={'/addPCInfo'}>
                         <button className="btn btn-primary btn-sm rounded-md">Add New</button>

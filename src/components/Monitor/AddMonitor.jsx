@@ -1,22 +1,60 @@
 import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 const AddMonitor = () => {
     const [purchaseDate, setPurchaseDate] = useState(new Date());
     const [lastServiceDate, setLastServiceDate] = useState(new Date());
 
+    const handleSubmitMonitorData = event => {
+        event.preventDefault();
+        const form = event.target;
+        const purchaseDate = form.purchaseDate.value;
+        const brandName = form.brandName.value;
+        const model = form.model.value;
+        const supplierName = form.supplierName.value;
+        const assetCode = form.assetCode.value;
+        const userName = form.userName.value;
+        const email = form.email.value;
+        const officeID = form.officeID.value;
+        const department = form.department.value;
+        const extNumber = form.extNumber.value;
+        const lastServiceDate = form.lastServiceDate.value;
+
+        const monitorData = {
+            purchaseDate, brandName, model, supplierName, assetCode,
+            userName, email, officeID, department, extNumber,
+            lastServiceDate
+        }
+
+        fetch('http://localhost:5000/monitorInfo', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(monitorData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success('Added Monitor Information Successfully.');
+                    form.reset();
+                    setPurchaseDate(new Date());
+                    setLastServiceDate(new Date());
+                }
+            })
+    }
+
     return (
         <div>
-            <form onSubmit={handleSubmitPCData}>
+            <h2 className='text-3xl font-bold text-center underline text-zinc-500 uppercase'> Monitor Section</h2>
+            <form>
                 {/* PC Info Part */}
-                <div>
-                    <h2 className='text-2xl font-bold text-teal-500 uppercase'>PC Info</h2>
+                <div className='mt-3'>
+                    <h2 className='text-xl font-bold text-teal-500'>Monitor Information</h2>
                     <hr />
                     <div className='flex gap-5 mt-3'>
-                        <select defaultValue="-- SELECT PC TYPE --" name='itemType' className="select mb-3" required>
-                            <option disabled>-- SELECT PC TYPE --</option>
-                            <option>Desktop</option>
-                            <option>Laptop</option>
-                        </select>
                         <label className="input input-bordered flex items-center z-10 gap-2 mb-3">
                             Purchase Date
                             <DatePicker name='purchaseDate' required
@@ -48,8 +86,8 @@ const AddMonitor = () => {
                 </div>
 
                 {/* User Info Part */}
-                <div className='mt-6'>
-                    <h2 className='text-2xl font-bold text-teal-500 uppercase'>User Info</h2>
+                <div className='mt-4'>
+                    <h2 className='text-xl font-bold text-teal-500'>User Information</h2>
                     <hr />
                     <div className='flex gap-5 mt-3'>
                         <label className="input input-bordered flex items-center gap-2 mb-3">
@@ -80,8 +118,8 @@ const AddMonitor = () => {
                 </div>
 
                 {/* Service Info Part */}
-                <div className='mt-6'>
-                    <h2 className='text-2xl font-bold text-teal-500 uppercase'>Service Info</h2>
+                <div className='mt-4'>
+                    <h2 className='text-xl font-bold text-teal-500'>Service Information</h2>
                     <hr />
                     <div className='flex gap-5 mt-3'>
                         <label className="input input-bordered flex items-center z-10 gap-2 mb-3">
@@ -95,7 +133,7 @@ const AddMonitor = () => {
                 </div>
                 <button className="btn btn-active btn-primary w-full rounded-xl mt-2">Submit</button>
             </form>
-            <Link to='/pcInfo'>
+            <Link to='/monitorInfo'>
                 <button className="btn bg-rose-600 text-slate-200 font-bold w-full rounded-xl mt-1">Back</button>
             </Link>
         </div>
