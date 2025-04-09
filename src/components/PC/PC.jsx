@@ -15,7 +15,7 @@ const PC = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.deletedCount) {
-                    toast.success('Deleted PC Data Successfully.');
+                    toast.success('Deleted PC Information Successfully.');
                 }
             })
     }

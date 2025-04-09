@@ -1,10 +1,24 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const Monitor = () => {
     const allMonitorData = useLoaderData();
 
     let i = 1;
+
+    // handler for delete pc data from db
+    const handleDeleteData = id => {
+        fetch(`http://localhost:5000/monitorInfo/${id}`, {
+            method: "DELETE",
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount) {
+                    toast.success('Deleted Monitor Information Successfully.');
+                }
+            })
+    }
 
     return (
         <div>
@@ -54,6 +68,9 @@ const Monitor = () => {
                                 <td>{monitorData?.assetCode}</td>
                                 <td>{monitorData?.purchaseDate}</td>
                                 <td>{monitorData?.lastServiceDate}</td>
+                                <td>
+                                    <button onClick={() => { handleDeleteData(pcData?._id) }} className="btn bg-red-500 text-white btn-sm rounded-md hover:bg-red-600">Delete</button>
+                                </td>
                             </tr>)
                         }
                     </tbody>
