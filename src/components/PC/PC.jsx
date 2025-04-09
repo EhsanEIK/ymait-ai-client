@@ -3,13 +3,13 @@ import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const PC = () => {
-    const pcAllData = useLoaderData();
+    const allPCInfoData = useLoaderData();
 
     let i = 1;
 
     // handler for delete pc data from db
     const handleDeleteData = id => {
-        fetch(`http://localhost:5000/pcData/${id}`, {
+        fetch(`http://localhost:5000/pcInfo/${id}`, {
             method: "DELETE",
         })
             .then(res => res.json())
@@ -26,7 +26,7 @@ const PC = () => {
             <div className='flex gap-5 justify-between mb-3'>
                 <h1 className='text-2xl font-bold'>PC List</h1>
                 <div className='flex gap-3'>
-                    <Link to={'/addPC'}>
+                    <Link to={'/addPCInfo'}>
                         <button className="btn btn-primary btn-sm rounded-md">Add New</button>
                     </Link>
                     <Link to='/'>
@@ -57,7 +57,7 @@ const PC = () => {
                     <tbody>
                         {/* row */}
                         {
-                            pcAllData.map(pcData => <tr key={pcData?._id} className="hover">
+                            allPCInfoData.map(pcData => <tr key={pcData?._id} className="hover">
                                 <th>{i++}</th>
                                 <th>{pcData?.itemType}</th>
                                 <td>{pcData?.brandName} {pcData?.model}</td>

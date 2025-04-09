@@ -29,7 +29,7 @@ const AddPC = () => {
             lastServiceDate
         }
 
-        fetch('http://localhost:5000/pcData', {
+        fetch('http://localhost:5000/pcInfo', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',
