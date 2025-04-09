@@ -1,52 +1,8 @@
 import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
-import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
 
-const AddPC = () => {
+const AddMonitor = () => {
     const [purchaseDate, setPurchaseDate] = useState(new Date());
     const [lastServiceDate, setLastServiceDate] = useState(new Date());
-
-    const handleSubmitPCData = event => {
-        event.preventDefault();
-        const form = event.target;
-        const itemType = form.itemType.value;
-        const purchaseDate = form.purchaseDate.value;
-        const brandName = form.brandName.value;
-        const model = form.model.value;
-        const supplierName = form.supplierName.value;
-        const assetCode = form.assetCode.value;
-        const userName = form.userName.value;
-        const email = form.email.value;
-        const officeID = form.officeID.value;
-        const department = form.department.value;
-        const extNumber = form.extNumber.value;
-        const lastServiceDate = form.lastServiceDate.value;
-
-        const pcData = {
-            itemType, purchaseDate, brandName, model, supplierName, assetCode,
-            userName, email, officeID, department, extNumber,
-            lastServiceDate
-        }
-
-        fetch('http://localhost:5000/pcInfo', {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify(pcData)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.acknowledged) {
-                    toast.success('Added PC Data Successfully.');
-                    form.reset();
-                    setPurchaseDate(new Date());
-                    setLastServiceDate(new Date());
-                }
-            })
-    }
-
 
     return (
         <div>
@@ -146,4 +102,4 @@ const AddPC = () => {
     );
 };
 
-export default AddPC;
+export default AddMonitor;
