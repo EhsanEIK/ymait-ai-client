@@ -49,8 +49,8 @@ const PC = () => {
                             <th>Dept.</th>
                             <th>Ext. No.</th>
                             <th>Asset Code</th>
-                            <th>Purchase Date</th>
-                            <th>Last Servicing Date</th>
+                            <th>Purchase Date (D-M-Y)</th>
+                            <th>Last Service Date (D-M-Y)</th>
                             <th>Action</th>
                         </tr>
                     </thead>

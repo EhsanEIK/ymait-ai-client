@@ -47,7 +47,6 @@ const AddPC = () => {
             })
     }
 
-
     return (
         <div>
             <h2 className='text-3xl font-bold text-center underline text-zinc-500 uppercase'> PC Section</h2>
@@ -67,6 +66,7 @@ const AddPC = () => {
                             <DatePicker name='purchaseDate' required
                                 selected={purchaseDate}
                                 onChange={(date) => setPurchaseDate(date)}
+                                dateFormat="dd-MM-yyyy"
                             />
                         </label>
                     </div>
@@ -134,6 +134,7 @@ const AddPC = () => {
                             <DatePicker name='lastServiceDate' required
                                 selected={lastServiceDate}
                                 onChange={(date) => setLastServiceDate(date)}
+                                dateFormat="dd-MM-yyyy"
                             />
                         </label>
                     </div>

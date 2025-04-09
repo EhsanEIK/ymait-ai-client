@@ -48,8 +48,8 @@ const Monitor = () => {
                             <th>Dept.</th>
                             <th>Ext. No.</th>
                             <th>Asset Code</th>
-                            <th>Purchase Date</th>
-                            <th>Last Servicing Date</th>
+                            <th>Purchase Date (D-M-Y)</th>
+                            <th>Last Service Date (D-M-Y)</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -69,7 +69,7 @@ const Monitor = () => {
                                 <td>{monitorData?.purchaseDate}</td>
                                 <td>{monitorData?.lastServiceDate}</td>
                                 <td>
-                                    <button onClick={() => { handleDeleteData(pcData?._id) }} className="btn bg-red-500 text-white btn-sm rounded-md hover:bg-red-600">Delete</button>
+                                    <button onClick={() => { handleDeleteData(monitorData?._id) }} className="btn bg-red-500 text-white btn-sm rounded-md hover:bg-red-600">Delete</button>
                                 </td>
                             </tr>)
                         }

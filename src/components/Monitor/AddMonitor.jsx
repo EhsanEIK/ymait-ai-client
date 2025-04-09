@@ -50,7 +50,7 @@ const AddMonitor = () => {
         <div>
             <h2 className='text-3xl font-bold text-center underline text-zinc-500 uppercase'> Monitor Section</h2>
             <form onSubmit={handleSubmitMonitorData}>
-                {/* PC Info Part */}
+                {/* Monitor Info Part */}
                 <div className='mt-3'>
                     <h2 className='text-xl font-bold text-teal-500'>Monitor Information</h2>
                     <hr />
@@ -60,6 +60,7 @@ const AddMonitor = () => {
                             <DatePicker name='purchaseDate' required
                                 selected={purchaseDate}
                                 onChange={(date) => setPurchaseDate(date)}
+                                dateFormat="dd-MM-yyyy"
                             />
                         </label>
                     </div>
@@ -127,6 +128,7 @@ const AddMonitor = () => {
                             <DatePicker name='lastServiceDate' required
                                 selected={lastServiceDate}
                                 onChange={(date) => setLastServiceDate(date)}
+                                dateFormat="dd-MM-yyyy"
                             />
                         </label>
                     </div>
