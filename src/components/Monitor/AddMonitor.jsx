@@ -49,7 +49,7 @@ const AddMonitor = () => {
     return (
         <div>
             <h2 className='text-3xl font-bold text-center underline text-zinc-500 uppercase'> Monitor Section</h2>
-            <form>
+            <form onSubmit={handleSubmitMonitorData}>
                 {/* PC Info Part */}
                 <div className='mt-3'>
                     <h2 className='text-xl font-bold text-teal-500'>Monitor Information</h2>
