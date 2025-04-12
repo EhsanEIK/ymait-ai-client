@@ -37,7 +37,7 @@ const AddUPS = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    toast.success('Added Monitor Information Successfully.');
+                    toast.success('Added UPS Information Successfully.');
                     form.reset();
                     setPurchaseDate(new Date());
                     setLastServiceDate(new Date());

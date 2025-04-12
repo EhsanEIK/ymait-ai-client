@@ -9,15 +9,15 @@ const UPS = () => {
 
     // handler for delete pc data from db
     const handleDeleteData = id => {
-        // fetch(`http://localhost:5000/monitorInfo/${id}`, {
-        //     method: "DELETE",
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data.deletedCount) {
-        //             toast.success('Deleted Monitor Information Successfully.');
-        //         }
-        //     })
+        fetch(`http://localhost:5000/upsInfo/${id}`, {
+            method: "DELETE",
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount) {
+                    toast.success('Deleted UPS Information Successfully.');
+                }
+            })
     }
 
     return (
