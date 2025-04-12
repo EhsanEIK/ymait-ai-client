@@ -1,15 +1,54 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 
 const AddUPS = () => {
     const [purchaseDate, setPurchaseDate] = useState(new Date());
     const [lastServiceDate, setLastServiceDate] = useState(new Date());
 
+    const handleSubmitUPSData = event => {
+        event.preventDefault();
+        const form = event.target;
+        const purchaseDate = form.purchaseDate.value;
+        const brandName = form.brandName.value;
+        const model = form.model.value;
+        const supplierName = form.supplierName.value;
+        const userName = form.userName.value;
+        const email = form.email.value;
+        const officeID = form.officeID.value;
+        const department = form.department.value;
+        const extNumber = form.extNumber.value;
+        const lastServiceDate = form.lastServiceDate.value;
+
+        const monitorData = {
+            purchaseDate, brandName, model, supplierName,
+            userName, email, officeID, department, extNumber,
+            lastServiceDate
+        }
+
+        fetch('http://localhost:5000/upsInfo', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(monitorData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success('Added Monitor Information Successfully.');
+                    form.reset();
+                    setPurchaseDate(new Date());
+                    setLastServiceDate(new Date());
+                }
+            })
+    }
+
     return (
         <div>
             <h2 className='text-3xl font-bold text-center underline text-zinc-500 uppercase'> UPS Section</h2>
-            <form>
+            <form onSubmit={handleSubmitUPSData}>
                 {/* UPS Info Part */}
                 <div className='mt-3'>
                     <h2 className='text-xl font-bold text-teal-500'>UPS Information</h2>

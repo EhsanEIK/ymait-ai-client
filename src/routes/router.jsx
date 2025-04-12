@@ -32,11 +32,11 @@ export const router = createBrowserRouter([
     },
     {
         path: '/upsInfo',
-        element: <UPS></UPS>
+        element: <UPS></UPS>,
+        loader: () => fetch('http://localhost:5000/upsInfo')
     },
     {
         path: '/addUPSInfo',
-        element: <AddUPS></AddUPS>,
-        loader: () => fetch('http://localhost:5000/upsInfo')
+        element: <AddUPS></AddUPS>
     },
 ])
