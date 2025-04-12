@@ -5,6 +5,7 @@ import Monitor from "../components/Monitor/Monitor";
 import UPS from "../components/UPS/UPS";
 import AddPC from "../components/PC/AddPC";
 import AddMonitor from "../components/Monitor/AddMonitor";
+import AddUPS from "../components/UPS/AddUPS";
 
 export const router = createBrowserRouter([
     {
@@ -32,5 +33,9 @@ export const router = createBrowserRouter([
     {
         path: '/upsInfo',
         element: <UPS></UPS>
+    },
+    {
+        path: '/addUPSInfo',
+        element: <AddUPS></AddUPS>
     },
 ])
