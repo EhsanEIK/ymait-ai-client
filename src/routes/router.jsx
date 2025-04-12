@@ -36,6 +36,7 @@ export const router = createBrowserRouter([
     },
     {
         path: '/addUPSInfo',
-        element: <AddUPS></AddUPS>
+        element: <AddUPS></AddUPS>,
+        loader: () => fetch('http://localhost:5000/upsInfo')
     },
 ])

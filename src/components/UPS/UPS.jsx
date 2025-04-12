@@ -1,7 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const UPS = () => {
+    const allUPSData = useLoaderData();
+
+    let i = 1;
+
+    // handler for delete pc data from db
+    const handleDeleteData = id => {
+        fetch(`http://localhost:5000/monitorInfo/${id}`, {
+            method: "DELETE",
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount) {
+                    toast.success('Deleted Monitor Information Successfully.');
+                }
+            })
+    }
+
     return (
         <div>
             {/* Befor Table Part */}
@@ -23,24 +41,36 @@ const UPS = () => {
                         <tr>
                             <th>SL.</th>
                             <th>Brand/Model</th>
-                            <th>VA</th>
+                            <th>Supplier Name</th>
                             <th>User Name</th>
+                            <th>Email Address</th>
+                            <th>Office ID</th>
                             <th>Dept.</th>
-                            <th>Purchase Date</th>
-                            <th>Last Servicing Date</th>
+                            <th>Ext. No.</th>
+                            <th>Purchase Date (D-M-Y)</th>
+                            <th>Last Service Date (D-M-Y)</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {/* row */}
-                        <tr className="hover">
-                            <th>1</th>
-                            <td>Micron</td>
-                            <td>1200 VA</td>
-                            <td>Saddam</td>
-                            <td>QA</td>
-                            <td>13-03-2025</td>
-                            <td>13-03-2025</td>
-                        </tr>
+                        {
+                            allUPSData.map(upsData => <tr key={upsData?._id} className="hover">
+                                <th>{i++}</th>
+                                <td>{upsData?.brandName} {upsData?.model}</td>
+                                <td>{upsData?.supplierName}</td>
+                                <td>{upsData?.userName}</td>
+                                <td>{upsData?.email}</td>
+                                <td>{upsData?.officeID}</td>
+                                <td>{upsData?.department}</td>
+                                <td>{upsData?.extNumber}</td>
+                                <td>{upsData?.purchaseDate}</td>
+                                <td>{upsData?.lastServiceDate}</td>
+                                <td>
+                                    <button onClick={() => { handleDeleteData(upsData?._id) }} className="btn bg-red-500 text-white btn-sm rounded-md hover:bg-red-600">Delete</button>
+                                </td>
+                            </tr>)
+                        }
                     </tbody>
                 </table>
             </div>
