@@ -138,7 +138,7 @@ const AddMonitor = () => {
                     <button className="btn btn-active btn-primary w-full rounded-xl mt-2">Submit</button>
                 </form>
                 <Link to='/monitorInfo'>
-                    <button className="btn bg-rose-600 text-slate-200 font-bold w-full rounded-xl mt-1">Back</button>
+                    <button className="btn bg-slate-600 text-slate-200 font-bold w-full rounded-xl mt-1">Back</button>
                 </Link>
             </div>
             <div></div>
