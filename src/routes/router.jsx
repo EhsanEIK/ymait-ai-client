@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
             {
                 path: '/pcInfo',
                 element: <PC></PC>,
-                loader: () => fetch('http://localhost:5000/pcInfo')
+                loader: () => fetch('https://ymait-ai-server.vercel.app/pcInfo')
             },
             {
                 path: '/addPCInfo',
@@ -29,7 +29,7 @@ export const router = createBrowserRouter([
             {
                 path: '/monitorInfo',
                 element: <Monitor></Monitor>,
-                loader: () => fetch('http://localhost:5000/monitorInfo')
+                loader: () => fetch('https://ymait-ai-server.vercel.app/monitorInfo')
             },
             {
                 path: '/addMonitorInfo',
@@ -38,7 +38,7 @@ export const router = createBrowserRouter([
             {
                 path: '/upsInfo',
                 element: <UPS></UPS>,
-                loader: () => fetch('http://localhost:5000/upsInfo')
+                loader: () => fetch('https://ymait-ai-server.vercel.app/upsInfo')
             },
             {
                 path: '/addUPSInfo',

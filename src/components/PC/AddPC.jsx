@@ -29,7 +29,7 @@ const AddPC = () => {
             lastServiceDate
         }
 
-        fetch('http://localhost:5000/pcInfo', {
+        fetch('https://ymait-ai-server.vercel.app/pcInfo', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',

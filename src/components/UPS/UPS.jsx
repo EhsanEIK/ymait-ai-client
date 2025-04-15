@@ -9,7 +9,7 @@ const UPS = () => {
 
     // handler for delete pc data from db
     const handleDeleteData = id => {
-        fetch(`http://localhost:5000/upsInfo/${id}`, {
+        fetch(`https://ymait-ai-server.vercel.app/upsInfo/${id}`, {
             method: "DELETE",
         })
             .then(res => res.json())

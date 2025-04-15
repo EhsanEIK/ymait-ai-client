@@ -9,7 +9,7 @@ const Monitor = () => {
 
     // handler for delete pc data from db
     const handleDeleteData = id => {
-        fetch(`http://localhost:5000/monitorInfo/${id}`, {
+        fetch(`https://ymait-ai-server.vercel.app/monitorInfo/${id}`, {
             method: "DELETE",
         })
             .then(res => res.json())

@@ -28,7 +28,7 @@ const AddMonitor = () => {
             lastServiceDate
         }
 
-        fetch('http://localhost:5000/monitorInfo', {
+        fetch('https://ymait-ai-server.vercel.app/monitorInfo', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',

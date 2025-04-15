@@ -27,7 +27,7 @@ const AddUPS = () => {
             lastServiceDate
         }
 
-        fetch('http://localhost:5000/upsInfo', {
+        fetch('https://ymait-ai-server.vercel.app/upsInfo', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',
