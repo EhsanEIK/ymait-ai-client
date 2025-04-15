@@ -5,8 +5,10 @@ const Main = () => {
     return (
         <div className='w-full h-full container'>
             <div className='grid grid-cols-6 md:w-[1520px] gap-1 h-full'>
-                <div className='col-span-1 bg-indigo-600 p-2'>
-                    <h2>WELCOME</h2>
+                <div className='col-span-1 text-white font-bold bg-indigo-600 p-4'>
+                    <p>Profile</p>
+                    <p>Profile</p>
+                    <p className='text-red-600'>Work In Progress</p>
                 </div>
                 <div className='col-span-5 p-2'>
                     <div className='flex justify-between'>
