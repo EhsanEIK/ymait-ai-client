@@ -6,37 +6,44 @@ import UPS from "../components/UPS/UPS";
 import AddPC from "../components/PC/AddPC";
 import AddMonitor from "../components/Monitor/AddMonitor";
 import AddUPS from "../components/UPS/AddUPS";
+import Main from "../layout/Main";
 
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <Home></Home>
-    },
-    {
-        path: '/pcInfo',
-        element: <PC></PC>,
-        loader: () => fetch('http://localhost:5000/pcInfo')
-    },
-    {
-        path: '/addPCInfo',
-        element: <AddPC></AddPC>
-    },
-    {
-        path: '/monitorInfo',
-        element: <Monitor></Monitor>,
-        loader: () => fetch('http://localhost:5000/monitorInfo')
-    },
-    {
-        path: '/addMonitorInfo',
-        element: <AddMonitor></AddMonitor>
-    },
-    {
-        path: '/upsInfo',
-        element: <UPS></UPS>,
-        loader: () => fetch('http://localhost:5000/upsInfo')
-    },
-    {
-        path: '/addUPSInfo',
-        element: <AddUPS></AddUPS>
+        element: <Main></Main>,
+        children: [
+            {
+                path: '/',
+                element: <Home></Home>
+            },
+            {
+                path: '/pcInfo',
+                element: <PC></PC>,
+                loader: () => fetch('http://localhost:5000/pcInfo')
+            },
+            {
+                path: '/addPCInfo',
+                element: <AddPC></AddPC>
+            },
+            {
+                path: '/monitorInfo',
+                element: <Monitor></Monitor>,
+                loader: () => fetch('http://localhost:5000/monitorInfo')
+            },
+            {
+                path: '/addMonitorInfo',
+                element: <AddMonitor></AddMonitor>
+            },
+            {
+                path: '/upsInfo',
+                element: <UPS></UPS>,
+                loader: () => fetch('http://localhost:5000/upsInfo')
+            },
+            {
+                path: '/addUPSInfo',
+                element: <AddUPS></AddUPS>
+            },
+        ]
     },
 ])
