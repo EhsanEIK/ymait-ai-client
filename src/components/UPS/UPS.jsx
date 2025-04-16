@@ -40,15 +40,13 @@ const UPS = () => {
                     <thead>
                         <tr>
                             <th>SL.</th>
-                            <th>Brand/Model</th>
-                            <th>Supplier Name</th>
-                            <th>User Name</th>
-                            <th>Email Address</th>
+                            <th>Brand-Model</th>
+                            <th>Name</th>
+                            <th>Email</th>
                             <th>Office ID</th>
                             <th>Dept.</th>
-                            <th>Ext. No.</th>
+                            <th>Supplier Name</th>
                             <th>Purchase Date (D-M-Y)</th>
-                            <th>Last Service Date (D-M-Y)</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -58,14 +56,12 @@ const UPS = () => {
                             allUPSData.map(upsData => <tr key={upsData?._id} className="hover">
                                 <th>{i++}</th>
                                 <td>{upsData?.brandName} {upsData?.model}</td>
-                                <td>{upsData?.supplierName}</td>
                                 <td>{upsData?.userName}</td>
                                 <td>{upsData?.email}</td>
                                 <td>{upsData?.officeID}</td>
                                 <td>{upsData?.department}</td>
-                                <td>{upsData?.extNumber}</td>
+                                <td>{upsData?.supplierName}</td>
                                 <td>{upsData?.purchaseDate}</td>
-                                <td>{upsData?.lastServiceDate}</td>
                                 <td>
                                     <button onClick={() => { handleDeleteData(upsData?._id) }} className="btn bg-red-500 text-white btn-sm rounded-md hover:bg-red-600">Delete</button>
                                 </td>

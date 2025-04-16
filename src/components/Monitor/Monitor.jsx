@@ -40,16 +40,14 @@ const Monitor = () => {
                     <thead>
                         <tr>
                             <th>SL.</th>
-                            <th>Brand/Model</th>
-                            <th>Supplier Name</th>
-                            <th>User Name</th>
-                            <th>Email Address</th>
+                            <th>Brand-Model</th>
+                            <th>Name</th>
+                            <th>Email</th>
                             <th>Office ID</th>
                             <th>Dept.</th>
-                            <th>Ext. No.</th>
                             <th>Asset Code</th>
+                            <th>Supplier Name</th>
                             <th>Purchase Date (D-M-Y)</th>
-                            <th>Last Service Date (D-M-Y)</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -59,15 +57,13 @@ const Monitor = () => {
                             allMonitorData.map(monitorData => <tr key={monitorData?._id} className="hover">
                                 <th>{i++}</th>
                                 <td>{monitorData?.brandName} {monitorData?.model}</td>
-                                <td>{monitorData?.supplierName}</td>
                                 <td>{monitorData?.userName}</td>
                                 <td>{monitorData?.email}</td>
                                 <td>{monitorData?.officeID}</td>
                                 <td>{monitorData?.department}</td>
-                                <td>{monitorData?.extNumber}</td>
                                 <td>{monitorData?.assetCode}</td>
+                                <td>{monitorData?.supplierName}</td>
                                 <td>{monitorData?.purchaseDate}</td>
-                                <td>{monitorData?.lastServiceDate}</td>
                                 <td>
                                     <button onClick={() => { handleDeleteData(monitorData?._id) }} className="btn bg-red-500 text-white btn-sm rounded-md hover:bg-red-600">Delete</button>
                                 </td>

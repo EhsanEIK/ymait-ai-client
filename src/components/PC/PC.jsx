@@ -41,16 +41,14 @@ const PC = () => {
                         <tr>
                             <th>SL.</th>
                             <th>Item</th>
-                            <th>Brand/Model</th>
-                            <th>Supplier Name</th>
-                            <th>User Name</th>
-                            <th>Email Address</th>
+                            <th>Brand-Model</th>
+                            <th>Name</th>
+                            <th>Email</th>
                             <th>Office ID</th>
                             <th>Dept.</th>
-                            <th>Ext. No.</th>
                             <th>Asset Code</th>
+                            <th>Supplier Name</th>
                             <th>Purchase Date (D-M-Y)</th>
-                            <th>Last Service Date (D-M-Y)</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -61,15 +59,13 @@ const PC = () => {
                                 <th>{i++}</th>
                                 <th>{pcData?.itemType}</th>
                                 <td>{pcData?.brandName} {pcData?.model}</td>
-                                <td>{pcData?.supplierName}</td>
                                 <td>{pcData?.userName}</td>
                                 <td>{pcData?.email}</td>
                                 <td>{pcData?.officeID}</td>
                                 <td>{pcData?.department}</td>
-                                <td>{pcData?.extNumber}</td>
                                 <td>{pcData?.assetCode}</td>
+                                <td>{pcData?.supplierName}</td>
                                 <td>{pcData?.purchaseDate}</td>
-                                <td>{pcData?.lastServiceDate}</td>
                                 <td>
                                     <button onClick={() => { handleDeleteData(pcData?._id) }} className="btn bg-red-500 text-white btn-sm rounded-md hover:bg-red-600">Delete</button>
                                 </td>
