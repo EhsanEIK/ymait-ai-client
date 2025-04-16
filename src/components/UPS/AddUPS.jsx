@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const AddUPS = () => {
     const [purchaseDate, setPurchaseDate] = useState(new Date());
-    const [lastServiceDate, setLastServiceDate] = useState(new Date());
 
     const handleSubmitUPSData = event => {
         event.preventDefault();
@@ -18,13 +17,10 @@ const AddUPS = () => {
         const email = form.email.value;
         const officeID = form.officeID.value;
         const department = form.department.value;
-        const extNumber = form.extNumber.value;
-        const lastServiceDate = form.lastServiceDate.value;
 
         const monitorData = {
             purchaseDate, brandName, model, supplierName,
-            userName, email, officeID, department, extNumber,
-            lastServiceDate
+            userName, email, officeID, department
         }
 
         fetch('https://ymait-ai-server.vercel.app/upsInfo', {
@@ -40,7 +36,6 @@ const AddUPS = () => {
                     toast.success('Added UPS Information Successfully.');
                     form.reset();
                     setPurchaseDate(new Date());
-                    setLastServiceDate(new Date());
                 }
             })
     }
@@ -51,9 +46,9 @@ const AddUPS = () => {
             <div>
                 <h2 className='text-3xl font-bold text-center underline text-zinc-500 uppercase'> UPS Section</h2>
                 <form onSubmit={handleSubmitUPSData}>
-                    {/* UPS Info Part */}
+                    {/* Product Info Part */}
                     <div className='mt-3'>
-                        <h2 className='text-xl font-bold text-teal-500'>UPS Information</h2>
+                        <h2 className='text-xl font-bold text-teal-500'>Product Information</h2>
                         <hr />
                         <div className='flex gap-5 mt-3'>
                             <label className="input input-bordered flex items-center z-10 gap-2 mb-3">
@@ -64,6 +59,10 @@ const AddUPS = () => {
                                     dateFormat="dd-MM-yyyy"
                                 />
                             </label>
+                            <label className="input input-bordered flex items-center gap-2 mb-3">
+                                Supplier Name
+                                <input name='supplierName' type="text" className="grow" placeholder="supplier name" required />
+                            </label>
                         </div>
                         <div className='flex gap-5'>
                             <label className="input input-bordered flex items-center gap-2 mb-3">
@@ -73,12 +72,6 @@ const AddUPS = () => {
                             <label className="input input-bordered flex items-center gap-2 mb-3">
                                 Model
                                 <input name='model' type="text" className="grow" placeholder="model" require />
-                            </label>
-                        </div>
-                        <div className='flex gap-5'>
-                            <label className="input input-bordered flex items-center gap-2 mb-3">
-                                Supplier Name
-                                <input name='supplierName' type="text" className="grow" placeholder="supplier name" required />
                             </label>
                         </div>
                     </div>
@@ -105,28 +98,6 @@ const AddUPS = () => {
                             <label className="input input-bordered flex items-center gap-2 mb-3">
                                 Office ID
                                 <input name='officeID' type="text" className="grow" placeholder="id no." required />
-                            </label>
-                        </div>
-                        <div className='flex gap-5'>
-                            <label className="input input-bordered flex items-center gap-2 mb-3">
-                                Extension Number
-                                <input name='extNumber' type="text" className="grow" placeholder="ext. number" required />
-                            </label>
-                        </div>
-                    </div>
-
-                    {/* Service Info Part */}
-                    <div className='mt-4'>
-                        <h2 className='text-xl font-bold text-teal-500'>Service Information</h2>
-                        <hr />
-                        <div className='flex gap-5 mt-3'>
-                            <label className="input input-bordered flex items-center z-10 gap-2 mb-3">
-                                Last Service Date
-                                <DatePicker name='lastServiceDate' required
-                                    selected={lastServiceDate}
-                                    onChange={(date) => setLastServiceDate(date)}
-                                    dateFormat="dd-MM-yyyy"
-                                />
                             </label>
                         </div>
                     </div>
